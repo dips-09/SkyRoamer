@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmBooking";
+}
+
+<h2>Confirm Booking</h2>
+
+@Session["Display"]
+
+@Html.ActionLink("Go to Profile","CustomerProfile","Customer")
+
+@if (ViewBag.ConfirmMessage != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.ConfirmMessage");
+            };
+    </script>
+
+}

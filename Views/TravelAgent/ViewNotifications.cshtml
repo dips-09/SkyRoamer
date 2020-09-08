@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Sky_Roamer.Models.Book_Package>
+
+@{
+    ViewBag.Title = "ViewNotifications";
+}
+
+<h2>Notifications</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User_Registeration.First_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number_of_persons)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_of_Travelling)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        if (item.Status == "Booked")
+        {
+            <tr class="alert-success">
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_Registeration.First_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_of_persons)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_of_Travelling)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+
+            </tr>
+        }
+        else if (item.Status == "Cancelled")
+        {
+            <tr class="alert-danger">
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_Registeration.First_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_of_persons)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_of_Travelling)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_Registeration.First_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_of_persons)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_of_Travelling)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+
+            </tr>
+        }
+
+    }
+
+</table>
+
+@Html.ActionLink("Go To Profile","AgentProfile","TravelAgent")

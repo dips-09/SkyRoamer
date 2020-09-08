@@ -1,0 +1,52 @@
+﻿@model Sky_Roamer.Models.Billing
+
+@{
+    ViewBag.Title = "AddMoneyViaCard";
+}
+
+<h2>Add Money Via Card</h2>
+
+<div>
+
+    <hr />
+    @Session["Display"]
+</div>
+<div>
+    @using (Html.BeginForm("AddMoneyViaCard", "Payment", FormMethod.Post))
+    {
+    <table>
+        <tr>
+            <th>Enter Your Card Number </th>
+            <td>@Html.Editor("CardNumber", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <th>Card Expiry Date </th>
+            <td>@Html.Editor("ExpiryDate", new { @type = "date", @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <th>Enter CVV</th>
+            <td>@Html.Password("Cvv", new { @class = "form-control" })</td>
+        </tr>
+
+    </table>
+        <input type="submit" value="Proceed" class="btn btn-primary" />
+            
+       
+    }
+</div>
+@if (ViewBag.Message != null)
+{
+<script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+                window.location.href = "@Url.Action("CustomerProfile", "Customer")";
+            };
+</script>
+
+}
+
+<p>
+    @Html.ActionLink("Cancel", "CustomerProfile", "Customer") |
+    @Html.ActionLink("Back To Profile", "CustomerProfile", "Customer")
+</p>

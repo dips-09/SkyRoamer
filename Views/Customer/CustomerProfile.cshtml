@@ -1,0 +1,50 @@
+﻿@model Sky_Roamer.Models.Tour_Package
+
+@{
+    ViewBag.Title = "CustomerProfile";
+}
+
+<h2>Welcome Customer,</h2>
+
+<h3>@ViewBag.CustomerName</h3>
+
+@using (Html.BeginForm("View_Package", "Customer", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <table>
+        <tr>
+            <th>
+                Source                
+            </th>
+            <td>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Destination
+            </th>
+            <td>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Destination, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="View Package" class="btn btn-success" />
+</div>
+    
+}
+
+<div>
+    @using(Html.BeginForm("View_Booking","Customer",FormMethod.Get))
+    {
+        <input type="submit" value="View My Bookings" class="btn btn-default"/>
+    }
+</div>
+
+@Html.ActionLink("Logout","Logout","Home")
+

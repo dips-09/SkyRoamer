@@ -1,0 +1,66 @@
+﻿@model Sky_Roamer.Models.Tour_Package
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tour_Package</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Agent Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Registeration.First_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Package_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Per_head_cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Per_head_cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.images)
+        </dt>
+
+        <dd>
+            <img src="@Model.images" alt="Package Image" height="100" width="100" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PackageId }) |
+    @Html.ActionLink("Back to List", "View_Package")
+</p>

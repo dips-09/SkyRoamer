@@ -1,0 +1,22 @@
+﻿@model Sky_Roamer.Models.User_Registeration
+
+@{
+    ViewBag.Title = "AgentProfile";
+}
+
+<h2>Welcome Agent</h2>
+
+<h3>@Html.DisplayFor(model => model.First_name) @Html.DisplayFor(model => model.Last_name)</h3>
+
+@using (Html.BeginForm("New_Package", "TravelAgent", FormMethod.Get))
+{
+    <input type="submit" value="Add Package" class="btn btn-toolbar" />
+}
+
+@using (Html.BeginForm("ViewNotifications", "TravelAgent", FormMethod.Get))
+{
+    <input type="submit" value="Notifications" class="btn btn-link" />
+}
+
+@Html.ActionLink("Logout", "Logout", "Home")
+

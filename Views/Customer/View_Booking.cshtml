@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Sky_Roamer.Models.Book_Package>
+
+@{
+    ViewBag.Title = "View_Booking";
+}
+
+<h2>Your Bookings</h2>
+<h5>Click on the package Id for more details</h5>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tour_Package.Travel_Agent_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackageId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tour_Package.Travel_Agent_Id)
+            </td>
+            <td>
+                @Html.ActionLink(item.PackageId.ToString(), "BookingDetails", new { id = item.BookingId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookingId }) |
+                @Html.ActionLink("Cancel", "CancelBooking", new { id = item.BookingId })
+            </td>
+        </tr>
+    }
+
+</table>
+@if (ViewBag.CancelMessage != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.CancelMessage");
+            };
+    </script>
+
+}
+
+@Html.ActionLink("Back to Profile", "CustomerProfile", new { user = @Session["Customer"] }) |
+@Html.ActionLink("Logout", "Logout", "Home")

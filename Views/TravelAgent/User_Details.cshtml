@@ -1,0 +1,64 @@
+﻿@model Sky_Roamer.Models.User_Registeration
+
+@{
+    ViewBag.Title = "User_Details";
+}
+
+<h2>Customer Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.First_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_Birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_Birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p >
+    @Html.ActionLink("Back to List", "ViewNotifications", "TravelAgent")
+</p>

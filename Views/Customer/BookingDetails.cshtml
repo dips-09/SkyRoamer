@@ -1,0 +1,65 @@
+﻿@model Sky_Roamer.Models.Book_Package
+
+@{
+    ViewBag.Title = "BookingDetails";
+}
+
+<h2>Booking Details</h2>
+
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tour_Package.Travel_Agent_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tour_Package.Travel_Agent_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Registeration.First_name)
+        </dt>
+       
+        <dd>
+            @Html.DisplayFor(model => model.User_Registeration.First_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number_of_persons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number_of_persons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_Travelling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_Travelling)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |
+    @Html.ActionLink("Back to List", "View_Package", new { value = @Session["SearchParam"] })
+</p>
